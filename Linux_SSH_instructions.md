@@ -21,12 +21,28 @@
 First, you need to create a user on the Linux server. You can do this by using the `useradd` command. Replace `newuser` with the desired username:
 
 ```bash
+
+
+
 sudo useradd newuser
+
+
+
 ```
 
-Set a password for the new user
 
-An example is [here](./indycium_doc_prep.png)
+
+Set a password for the new user. Replace `newuser` with the username you just created:
+
+```bash
+sudo passwd newuser
+
+
+```
+
+
+
+An example using alternate command ```adduser```  is [here](./indycium_doc_prep.png). This command is more user friendly. 
 
 ![user_add_image](./indycium_doc_prep.png)
 
