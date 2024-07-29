@@ -13,12 +13,10 @@ sudo useradd newuser
 ```
 
 Set a password for the new user
-```
-@@@@@@@@@@@@
-@@
-<img here>
 
-@@@@@@@@@@@@@@@@@
+An example is [here](./indycium_doc_prep.png)
+
+![user_add_image](./indycium_doc_prep.png)
 
 ### Step 2: Generate SSH Key Pair on Your Laptop
 
