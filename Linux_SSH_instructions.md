@@ -111,3 +111,14 @@ ssh newuser@server_ip_address
 If everything is set up correctly, you should be logged in without being asked for a password.
 
 
+
+
+## References
+
+
+
+
+- https://www.linkedin.com/pulse/adduser-useradd-creating-users-linux-shannon-houska/
+- https://www.ssh.com/academy/ssh/copy-id
+- https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+
