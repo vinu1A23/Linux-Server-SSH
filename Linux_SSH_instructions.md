@@ -53,30 +53,39 @@ An example using alternate command ```adduser```  is [here](./indycium_doc_prep.
 
 
 
-
-On your laptop, generate an SSH key pair using the `ssh-keygen` command. This creates a private key (`id_rsa`) and a public key (`id_rsa.pub`). You can specify a passphrase for added security, but pressing Enter without typing anything will create a key without a passphrase.
+To generate an SSH key pair on your laptop, use the `ssh-keygen` command. This creates a private key (`id_rsa`) and a public key (`id_rsa.pub`). You can specify a passphrase for added security, but pressing Enter without typing anything will create a key without a passphrase.
 
 ```bash
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
-Follow the prompts to save the keys. By default, they are saved in the `.ssh` directory under your home directory.
-
--t helps in selecting the encryption algorithm
-
-
--b decides key length or size
-
-
--c or -C sets the comment we provide for the ssh key
-
-Something like this may appear 
-
-
+Follow the prompts to save the keys. By default, they are saved in the `.ssh` directory under your home directory. The utility prompts you to select a location for the keys. Using the default locations allows your SSH client to automatically find your SSH keys when authenticating, so we recommend accepting them by pressing ENTER.
 
 ```bash
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/username/.ssh/id_rsa):
+```
 
+#### Warning
 
+If you have previously generated a key pair, you may see a prompt that looks like this:
+
+```bash
+/home/username/.ssh/id_rsa already exists.
+Overwrite (y/n)?
+```
+
+If you choose to overwrite the key on disk, you cannot authenticate using the previous key anymore. Selecting yes is an irreversible destructive process. Once you select a location for the key, you are prompted to enter an optional passphrase which encrypts the private key file on disk. If you enter one, you have to provide it every time you use this key (unless you are running SSH agent software that stores the decrypted key). We recommend using a passphrase, but you can press ENTER to bypass this prompt.
+
+```bash
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+```
+
+After completing these steps, you will have a public and private key that you can use to authenticate.
+
+```bash
+Created directory '/home/username/.ssh'.
 Your identification has been saved in /home/username/.ssh/id_rsa.
 Your public key has been saved in /home/username/.ssh/id_rsa.pub.
 The key fingerprint is:
@@ -93,9 +102,13 @@ The key's randomart image is:
 |. =++..          |
 |o=++.            |
 +-----------------+
-
-
 ```
+
+#### Explanation of Options
+- `-t` helps in selecting the encryption algorithm.
+- `-b` decides the key length or size.
+- `-c` or `-C` sets the comment you provide for the SSH key.
+
 
 ### Step 3: Copy the Public Key to the Server
 
@@ -106,6 +119,8 @@ Now, you need to copy the public key to the server. You can use the `ssh-copy-id
 
 ```bash
 ssh-copy-id newuser@server_ip_address
+
+
 ```
 
 This command copies the public key to the `~/.ssh/authorized_keys` file on the server, allowing passwordless login.
