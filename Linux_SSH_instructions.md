@@ -107,7 +107,7 @@ The key's randomart image is:
 #### Explanation of Options
 - `-t` helps in selecting the encryption algorithm.
 - `-b` decides the key length or size.
-- `-c` or `-C` sets the comment you provide for the SSH key.
+- `-C` sets the comment you provide for the SSH key.
 
 
 ### Step 3: Copy the Public Key to the Server
